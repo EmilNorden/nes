@@ -68,9 +68,11 @@ class cpu_registers {
   constexpr void set_pc(std::uint16_t val) noexcept { m_pc = val; }
 
   [[nodiscard]] constexpr auto offset_pc(std::int8_t val) noexcept {
-    auto from_page = m_pc / 0x100;
+    // auto from_page = m_pc / 0x100;
+    auto from_page = m_pc & 0xFF00;
     m_pc += val;
-    auto to_page = m_pc / 0x100;
+    // auto to_page = m_pc / 0x100;
+    auto to_page = m_pc & 0xFF00;
 
     return from_page != to_page;
   }

@@ -14,15 +14,17 @@ class cpu2a03 {
 
   constexpr void reset() noexcept {
     m_registers = cpu_registers{};
-    // m_registers.set_pc(m_memory.read16(0xFFFC));
-    m_registers.set_pc(0xC000);
+    m_registers.set_pc(m_memory.read16(0xFFFC));
+    // m_registers.set_pc(0xC000);
   }
 
   [[nodiscard]] /*constexpr*/ int process_instruction() noexcept {
 
-    if(m_registers.pc() == 0xDC10) {
+    if(m_registers.pc() == 0xC7C0)
+    {
       int f = 4;
     }
+
     std::cout << fmt::format("{:04X}  ", m_registers.pc());
     auto opcode = m_memory.read8(m_registers.increment_pc());
     std::cout << fmt::format("{:02X} ", opcode);
