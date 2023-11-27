@@ -35,8 +35,7 @@ target_compile_options(nes PRIVATE
 		$<$<CXX_COMPILER_ID:GNU>: -Wduplicated-branches>
 		$<$<CXX_COMPILER_ID:GNU>: -Wlogical-op>
 		$<$<CXX_COMPILER_ID:GNU>: -Wuseless-cast>
-		$<$<CXX_COMPILER_ID:GNU>: -Wlifetime>
-		-Wundefined-reinterpret-cast
+        $<$<CXX_COMPILER_ID:Clang>: -Wundefined-reinterpret-cast>
 		-Wnull-dereference
 		-Wdouble-promotion
 		-Wformat=2)

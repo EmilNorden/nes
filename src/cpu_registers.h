@@ -16,7 +16,7 @@ enum class cpu_flag : std::uint8_t {
 
 class cpu_registers {
  public:
-  cpu_registers()
+  constexpr cpu_registers()
       : m_accumulator(0),
         m_x(0),
         m_y(0),
